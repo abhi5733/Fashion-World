@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import  "../Styles/Navbar.css"
 import { Link } from 'react-router-dom'
+import { AuthContext } from '../Context/LoginContext'
 
 const Navbar = () => {
+  const {isauth} = useContext(AuthContext)
   return (
     <div style={{width:"80%",border:"1px solid", margin:"auto"}}>
       <div style={{display:"grid", gridTemplateColumns:"60% 40%"}}><div className='hi' style={{display:"flex",border:"1px solid"}}> <Link to="/">Women</Link>  <Link to="/Men">Men</Link> <h3>Kid</h3><h3>Life</h3> </div> <div className='hi2' style={{display:"flex",border:"1px solid"}}><p>Signup for Newsletter</p>  <Link to="/Login"><p>My account</p></Link> <p>My wishlist</p><p>International | English
