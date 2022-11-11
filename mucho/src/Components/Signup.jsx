@@ -6,7 +6,7 @@ import { AuthContext } from '../Context/LoginContext'
 const Signup = () => {
      const[formstate,setformstate] = useState({First_Name:"", Last_Name:"",Email:"",Password:""})
  const  {First_Name , Last_Name,Email,Password} = formstate
-    const {isauth} = useContext(AuthContext)
+    const {isauth,setisauth,setdata} = useContext(AuthContext)
    // console.log(isauth)
 
 
@@ -19,7 +19,25 @@ const Signup = () => {
      
 const submit=(e)=>{
   e.preventDefault()
-console.log(formstate)
+  setisauth(true)
+  setdata(formstate)
+
+}
+
+if(isauth){
+return <div style={{width:"80%",margin:"auto"}}>
+ <h2>MY OVERVIEW</h2>
+ <p>Thank you for registering with mytheresa.com.</p>
+ 
+ <div><h2>Hello ,{formstate.First_Name}</h2>
+ <p>From your My Account Dashboard you have the ability to view a snapshot of your recent account activity and update your account information. Select a link below to view or edit information.</p></div>
+ <div><p>My Account Information</p> 
+   <h4>Name:{formstate.First_Name}{formstate.Last_Name}</h4>
+   <h4>Email:{formstate.Email}</h4>
+  </div>
+
+
+</div>
 
 }
 

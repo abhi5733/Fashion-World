@@ -4,9 +4,17 @@ import { useState } from 'react'
  import { createContext } from 'react'
  export const AuthContext = createContext()
  const LoginContext = ({children}) => {
-  const[isauth,setisauth] = useState(false)
+  const[isauth,setisauth] = useState(false) //
+ const [data,setdata] = useState([])
 
-       const value= {isauth}
+  const logout =()=>{
+    return setisauth(false)
+   }
+
+       const value= {isauth,setisauth,logout,data,setdata}
+
+
+     
    return (
      <AuthContext.Provider value={value} >
         {children}
