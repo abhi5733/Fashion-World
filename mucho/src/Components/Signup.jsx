@@ -6,7 +6,7 @@ import { AuthContext } from '../Context/LoginContext'
 const Signup = () => {
      const[formstate,setformstate] = useState({First_Name:"", Last_Name:"",Email:"",Password:""})
  const  {First_Name , Last_Name,Email,Password} = formstate
-    const {isauth,setisauth,setdata} = useContext(AuthContext)
+    const {isauth,setisauth,setinfor} = useContext(AuthContext)
    // console.log(isauth)
 
 
@@ -20,7 +20,7 @@ const Signup = () => {
 const submit=(e)=>{
   e.preventDefault()
   setisauth(true)
-  setdata(formstate)
+  setinfor(formstate)
 
 }
 

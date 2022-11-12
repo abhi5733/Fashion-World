@@ -1,14 +1,26 @@
- import React from 'react'
+ import React, { useContext } from 'react'
 import { useEffect } from 'react'
  import axios from "axios"
 import { useState } from 'react'
 import Footer from './Footer'
+import { Link, Navigate } from 'react-router-dom'
+import { AuthContext } from '../Context/LoginContext'
 
 
 
  const WomenPoducts = () => {
-  const[product,setproduct] = useState([])
-  const[sort,setsort] = useState("desc")
+    const {product,setproduct,data,setdata} = useContext(AuthContext)
+  
+ // const[sort,setsort] = useState("desc")
+
+
+ const onClick=(item)=>{
+    setproduct(item)
+    
+ }
+
+
+
 
 //   const sorts=(data)=>{
 //     return axios.get(`https://mocki.io/v1/1dadbe52-cbe4-4a08-981a-ca30cc474cc9/orderBy=${data}`)
@@ -17,12 +29,13 @@ import Footer from './Footer'
 // }
 // https://mocki.io/v1/1dadbe52-cbe4-4a08-981a-ca30cc474cc9
     useEffect(()=>{
-        axios.get(`https://63392f7e383946bc7fefa23b.mockapi.io/hi/abhi`,{
+        axios.get(`https://mocki.io/v1/1dadbe52-cbe4-4a08-981a-ca30cc474cc9`,{
              params:{
                 limit:10
             }
         })
-        .then((res)=> {console.log(res.data[0].products) ; setproduct(res.data[0].products)})
+        .then((res)=> {console.log(res.data.products) ; setdata(res.data.products)})
+        .catch((err)=>{console.log(err)})
     },[])
   
   
@@ -40,9 +53,9 @@ import Footer from './Footer'
     <div style={{width:"20%",border:"1px solid"}}><p>NEW ARRIVALS</p> <p>CURRENT WEEK</p><li>Monday</li><li>Tuesday</li>
     <li>Wednesday</li> <li>Thursday</li> <li>Friday</li> <li>Saturday</li> </div>
     <div style={{width:"80%",display:"grid",gridTemplateColumns:"30% 30% 30%",gap:"10px",border:"1px solid"}}> 
-       {product.map((item)=>{
-        return <div key={item.id} ><img width="80%"  src={item.images}alt={item.title} /> 
-        <h2>{item.title}</h2> <p>{item.name}</p> <p>{item.price}</p> </div>
+       {data?.map((item)=>{
+        return ( <div key={item.id} > <Link to="/Product">  <img onClick={()=>onClick(item)} width="80%"  src={item.images}alt={item.title} /> </Link> 
+        <h2>{item.title}</h2> <p>{item.name}</p> <p>{item.price}</p> </div> )
        })}
        </div>
        </div>
