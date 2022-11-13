@@ -4,7 +4,7 @@ import { Link, Navigate } from 'react-router-dom'
 import { AuthContext } from '../Context/LoginContext'
 
 const Checkout = () => {
-    const {isauth,logout,data,setdata,infor} = useContext(AuthContext)
+    const {isauth,logout,data,setdata,infor,setbag} = useContext(AuthContext)
  const[info,setinfo] = useState({post_code:"" , country:""})
 
 

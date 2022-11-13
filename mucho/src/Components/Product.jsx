@@ -17,7 +17,7 @@ const Product = () => {
         setbag([...bag,product])
         alert("product added to bag")
      }
-     console.log(bag)
+    // console.log(bag)
     return (
     <div style={{width:'80%',margin:"50px auto"}}>
       <div style={{display:"grid",gridTemplateColumns:'50% 50%'}}>
