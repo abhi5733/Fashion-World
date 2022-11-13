@@ -1,7 +1,6 @@
 import React from 'react'
 import { Route,Routes } from 'react-router-dom'
 import Checkout from '../Components/Checkout'
-import Checkout2 from '../Components/Checkout2'
 import Men from '../Components/Men'
 import Payment from '../Components/Payment'
 import Product from '../Components/Product'
@@ -23,7 +22,7 @@ const AllRoutes = () => {
         <Route path="/Product" element={<Product/>}  />
         <Route path="/Checkout" element={<Checkout/>}  />
         <Route path="/Payment" element={<Payment/>}  />
-        <Route path="/Checkout2"   element={<Checkout2/>} />
+        
         
       </Routes>
     </div>

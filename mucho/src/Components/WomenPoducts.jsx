@@ -11,7 +11,7 @@ import { AuthContext } from '../Context/LoginContext'
  const WomenPoducts = () => {
     const {product,setproduct,data,setdata} = useContext(AuthContext)
   
- // const[sort,setsort] = useState("desc")
+  const[sort,setsort] = useState("desc")
 
 
  const onClick=(item)=>{
@@ -50,12 +50,12 @@ import { AuthContext } from '../Context/LoginContext'
 
      <div style={{width:"80%",margin:"auto"}}>
         <div style={{display:"flex"}} > 
-    <div style={{width:"20%",border:"1px solid"}}><p>NEW ARRIVALS</p> <p>CURRENT WEEK</p><li>Monday</li><li>Tuesday</li>
+    <div style={{width:"20%"}}><p>NEW ARRIVALS</p> <p>CURRENT WEEK</p><li>Monday</li><li>Tuesday</li>
     <li>Wednesday</li> <li>Thursday</li> <li>Friday</li> <li>Saturday</li> </div>
-    <div style={{width:"80%",display:"grid",gridTemplateColumns:"30% 30% 30%",gap:"10px",border:"1px solid"}}> 
+    <div style={{width:"80%",display:"grid",gridTemplateColumns:"30% 30% 30%",gap:"10px",marginTop:"10px"}}> 
        {data?.map((item)=>{
         return ( <div key={item.id} > <Link to="/Product">  <img onClick={()=>onClick(item)} width="80%"  src={item.images}alt={item.title} /> </Link> 
-        <h2>{item.title}</h2> <p>{item.name}</p> <p>{item.price}</p> </div> )
+        <h2>{item.title}</h2> <p>{item.name}</p> <p>₹ {item.price}</p> </div> )
        })}
        </div>
        </div>

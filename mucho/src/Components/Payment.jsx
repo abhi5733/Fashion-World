@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { AuthContext } from '../Context/LoginContext'
 
 const Payment = () => {
   const[info,setinfo] = useState({Name:"",card:"",date:"",cvv:""})
-
+  const {isauth,logout,data,setdata,infor,setbag} = useContext(AuthContext)
  const {Name,card,date,cvv} = info ;
 
 const onclick=(e)=>{
@@ -13,7 +14,8 @@ const onclick=(e)=>{
 }
 console.log(info)
 const onSubmit=()=>{
-  return
+  alert("order Placed Successfully")
+  setbag(0)
 }
 
   return (
@@ -30,8 +32,8 @@ const onSubmit=()=>{
   <input value={cvv} onChange={onclick} name="cvv" type="number" placeholder='CVC'/> </div>
       </div>
       <hr/>
-     <Link to="/Checkout">  <button style={{float:"left"}}>Back To Delivery</button> </Link>
-     <Link to="/Checkout2" >   <button disabled={info.Name==""||info.cvv==""||info.card==""||info.date==""} style={{float:"right"}}>Proceed To checkout</button> </Link>
+     <Link to="/Checkout">  <button  style={{float:"left",backgroundColor:"black",padding:"5px 10px",color:"white"}}>Back To Delivery</button> </Link>
+     <Link to="/" >   <button onClick={onSubmit} disabled={info.Name==""||info.cvv==""||info.card==""||info.date==""} style={{float:"right",backgroundColor:"black",padding:"5px 10px",color:"white"}}>Place Order</button> </Link>
     </div>
   )
 }
