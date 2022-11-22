@@ -28,6 +28,7 @@ import { AuthContext } from '../Context/LoginContext'
 //     console.log(data)
 // }
 // https://mocki.io/v1/1dadbe52-cbe4-4a08-981a-ca30cc474cc9
+
     useEffect(()=>{
         axios.get(`https://mocki.io/v1/1dadbe52-cbe4-4a08-981a-ca30cc474cc9`,{
              params:{
